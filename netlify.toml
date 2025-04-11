@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
@@ -12,4 +12,15 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
+  status = 200
+
+# Handle client-side routing
+[[redirects]]
+  from = "/discover"
+  to = "/discover/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/wallet"
+  to = "/wallet/index.html"
   status = 200 
