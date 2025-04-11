@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "netlify deploy --prod"
   },
   "dependencies": {
     "@chainsafe/libp2p-gossipsub": "^14.1.1",
@@ -38,6 +39,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "netlify-cli": "^20.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
