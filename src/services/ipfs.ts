@@ -12,11 +12,15 @@ import { identify } from '@libp2p/identify'
 import type { CID } from 'multiformats/cid'
 import { CID as CIDConstructor } from 'multiformats/cid'
 
+// Get environment variables
+const IPFS_GATEWAY = process.env.NEXT_PUBLIC_IPFS_GATEWAY || 'https://ipfs.io/ipfs/'
+
 export class IPFSService {
   private helia: any
   private fs: any
   private node: any
   private isInitialized: boolean = false
+  private gateway: string = IPFS_GATEWAY
   
   constructor() {
     this.initialize().catch(error => {
@@ -191,5 +195,23 @@ export class IPFSService {
       peers.push(peerId.toString())
     }
     return peers
+  }
+
+  /**
+   * Get the IPFS gateway URL
+   * @returns The IPFS gateway URL
+   */
+  getGateway(): string {
+    return this.gateway
+  }
+
+  /**
+   * Get the URL for a CID
+   * @param cid - Content identifier
+   * @returns URL to access the content
+   */
+  getUrl(cid: CID | string): string {
+    const cidString = typeof cid === 'string' ? cid : cid.toString()
+    return `${this.gateway}${cidString}`
   }
 } 
