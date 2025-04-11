@@ -35,7 +35,7 @@ PermaDiscover is a decentralized content discovery platform built with IPFS and 
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open beamish-meringue-e63fe3.netlify.app in your browser.
 
 ## Project Structure
 
